@@ -5,3 +5,4 @@ package-lock.json
 *.sql
 *.json
 !base.sql
+!package.json
