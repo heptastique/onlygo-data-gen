@@ -50,7 +50,6 @@ for(var i = 0; i<50; i++) {
 
     output += "INSERT INTO activity(activity_id, date, distance, estrealisee, programme_id, sport_id, CENTREINTERET_ID, timeframe_id) VALUES ("+ idAct +", '" + jours[nbAct] +"', "+ distanceActivite +", 0, "+ idProgramme +", 1, 10000, "+ idPlageHoraire[nbAct] +");\n"
     
-    idProgramme ++
     idAct ++
   }
 
