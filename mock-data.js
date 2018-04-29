@@ -33,9 +33,7 @@ for(var i = 0; i<50; i++) {
   output += "INSERT INTO point (ID, x, y) VALUES (" + idPoint +", " + latUser + ", " + longUser + ");\n"
   output += "INSERT INTO users (ID, USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL, ENABLED, LASTPASSWORDRESETDATE, OBJECTIFHEBDO, Location_id) VALUES (" + idUser + ", \"user" + username + "\", \"$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC\", \"user" + username + "\", \"user" + username + "\", \"user" + username + "@user.com\", 1, \"2003/01/22\", "+ distance +", "+ idPoint +");\n"
   output += "INSERT INTO user_authority (USER_ID, AUTHORITY_ID) VALUES ("+ idUser +", 2);\n"
-  output += "INSERT INTO programme(programme_id, date_debut, user_id) VALUES ("+ idProgramme +", '2018-04-23', "+ idUser +");\n"
 
-  idProgramme++
   idPoint++
 
   // Generate future program
@@ -55,6 +53,8 @@ for(var i = 0; i<50; i++) {
 
   // Generating past program
   idProgramme ++
+  output += "INSERT INTO programme(programme_id, date_debut, user_id) VALUES ("+ idProgramme +", '2018-04-23', "+ idUser +");\n"
+
   for(var nbAct = 1; nbAct < 5; nbAct ++) {
     // Pour chaque activité de la semaine dernière réalisée
     var jour = 16+nbAct
@@ -69,6 +69,7 @@ for(var i = 0; i<50; i++) {
   }
 
   idUser++
+  idProgramme++
 
   output += "\n"
 }
