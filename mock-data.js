@@ -31,11 +31,13 @@ for(var i = 0; i<50; i++) {
 
   var username = idUser - 10000
 
+  var difficulty = Math.round(Math.random()*3)
+
   output += "INSERT INTO point (ID, x, y) VALUES (" + idPoint +", " + latUser + ", " + longUser + ");\n"
-  output += "INSERT INTO users (ID, USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL, ENABLED, LASTPASSWORDRESETDATE, Location_id) VALUES (" + idUser + ", \"user" + username + "\", \"$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC\", \"user" + username + "\", \"user" + username + "\", \"user" + username + "@user.com\", 1, \"2003/01/22\", "+ idPoint +");\n"
+  output += "INSERT INTO users (ID, USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL, ENABLED, LASTPASSWORDRESETDATE, Location_id, difficulty) VALUES (" + idUser + ", \"user" + username + "\", \"$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC\", \"user" + username + "\", \"user" + username + "\", \"user" + username + "@user.com\", 1, \"2003/01/22\", "+ idPoint +", "+ difficulty +");\n"
   output += "INSERT INTO user_authority (USER_ID, AUTHORITY_ID) VALUES ("+ idUser +", 2);\n"
-  output += "INSERT INTO objectif (id, objectif, sport_id) VALUES (" + idObjectif + ", 10, 1);\n"
-  output += "INSERT INTO users_objectifs (user_id, objectifs_id) VALUES ("+ idUser +", "+ idUser +");\n"
+  //output += "INSERT INTO objectif (id, objectif, sport_id) VALUES (" + idObjectif + ", 10, 1);\n"
+  //output += "INSERT INTO users_objectifs (user_id, objectifs_id) VALUES ("+ idUser +", "+ idUser +");\n"
   
   idObjectif++
   idPoint++
@@ -46,8 +48,8 @@ for(var i = 0; i<50; i++) {
 
   var objectif = Math.round(5 + Math.random()*10)
   output += "INSERT INTO programme(programme_id, date_debut, user_id) VALUES ("+ idProgramme +", '2018-04-30', "+ idUser +");\n"
-  output += "INSERT INTO objectif(id, objectif, sport_id) VALUES ("+ idObjectif +", 10, 1);\n"
-  output += "INSERT INTO programme_objectifs(programme_programme_id, objectifs_id) VALUES ("+ idProgramme +", 1);\n"
+  //output += "INSERT INTO objectif(id, objectif, sport_id) VALUES ("+ idObjectif +", 10, 1);\n"
+  //output += "INSERT INTO programme_objectifs(programme_programme_id, objectifs_id) VALUES ("+ idProgramme +", 1);\n"
 
   idObjectif++
 
@@ -64,8 +66,8 @@ for(var i = 0; i<50; i++) {
   idProgramme ++
   var objectif = Math.round(5 + Math.random()*10)
   output += "INSERT INTO programme(programme_id, date_debut, user_id) VALUES ("+ idProgramme +", '2018-04-23', "+ idUser +");\n"
-  output += "INSERT INTO objectif(id, objectif, sport_id) VALUES ("+ idObjectif +", 10, 1);\n"
-  output += "INSERT INTO programme_objectifs(programme_programme_id, objectifs_id) VALUES ("+ idProgramme +", 1);\n"
+  //output += "INSERT INTO objectif(id, objectif, sport_id) VALUES ("+ idObjectif +", 10, 1);\n"
+  //output += "INSERT INTO programme_objectifs(programme_programme_id, objectifs_id) VALUES ("+ idProgramme +", 1);\n"
 
   idObjectif++
 
