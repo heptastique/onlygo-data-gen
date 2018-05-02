@@ -40,7 +40,8 @@ for(var i = 0; i<50; i++) {
   const jours = ["2018-04-30", "2018-05-01", "2018-05-02", "2018-05-03", "2018-05-04"]
   const idPlageHoraire = [6, 14, 20, 31, 39]
 
-  output += "INSERT INTO programme(programme_id, date_debut, user_id) VALUES ("+ idProgramme +", '2018-04-30', "+ idUser +");\n"
+  var objectif = Math.round(5 + Math.random()*10)
+  output += "INSERT INTO programme(programme_id, date_debut, user_id, objectif_distance) VALUES ("+ idProgramme +", '2018-04-30', "+ idUser +", "+ objectif +");\n"
 
   for(var nbAct = 1; nbAct < 5; nbAct ++) {
     var distanceActivite = 7 + Math.random()*5
@@ -53,7 +54,8 @@ for(var i = 0; i<50; i++) {
 
   // Generating past program
   idProgramme ++
-  output += "INSERT INTO programme(programme_id, date_debut, user_id) VALUES ("+ idProgramme +", '2018-04-23', "+ idUser +");\n"
+  var objectif = Math.round(5 + Math.random()*10)
+  output += "INSERT INTO programme(programme_id, date_debut, user_id, objectif_distance) VALUES ("+ idProgramme +", '2018-04-23', "+ idUser +", "+ objectif +");\n"
 
   for(var nbAct = 1; nbAct < 5; nbAct ++) {
     // Pour chaque activité de la semaine dernière réalisée
@@ -76,5 +78,5 @@ for(var i = 0; i<50; i++) {
 
 output += "\n\n"
 
-fs.writeFileSync("mock.sql", output)
+fs.writeFileSync("C:\\Users\\victo\\IdeaProjects\\onlygo\\src\\main\\resources\\import.sql", output)
 fs.writeFileSync("users.csv", localisation)
