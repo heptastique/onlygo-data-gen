@@ -55,7 +55,7 @@ for(var i = 0; i<50; i++) {
     var distanceActivite = 7 + Math.random()*5
     var timeframeid = Math.round(Math.random()*56)
 
-    output += "INSERT INTO activity(activity_id, date, distance, estrealisee, programme_id, sport_id, CENTREINTERET_ID, timeframe_id) VALUES ("+ idAct +", '" + jours[nbAct] +"', "+ distanceActivite +", 0, "+ idProgramme +", 1, 10000, "+ idPlageHoraire[nbAct] +");\n"
+    output += "INSERT INTO activity(activity_id, date_prevue, distance_prevue, distance_realisee, estrealisee, programme_id, sport_id, CENTREINTERET_ID, timeframe_id) VALUES ("+ idAct +", '" + jours[nbAct] +"', "+ distanceActivite +", 0, 0, "+ idProgramme +", 1, 10000, "+ idPlageHoraire[nbAct] +");\n"
     
     idAct ++
   }
@@ -75,8 +75,8 @@ for(var i = 0; i<50; i++) {
     var distanceActivite = 7 + Math.random()*5
     var timeframeid = Math.round(Math.random()*56)
     
-    output += "INSERT INTO activity(activity_id, date, distance, estrealisee, programme_id, sport_id, CENTREINTERET_ID, timeframe_id) VALUES ("+ idAct +", '2018-04-"+ jour +"', "+ distanceActivite +", 1, "+ idProgramme +", 1, 10000, "+ timeframeid +");\n"
-    output += "INSERT INTO realisation(realisation_id, date, distance, activity_id, programme_id, CENTREINTERET_ID, timeframe_id) VALUES ("+ idReal +", '2018-04-"+ jour +"', 4, "+ idAct +", " + idProgramme + ", 10000, "+ timeframeid +");\n"
+    output += "INSERT INTO activity(activity_id, date_prevue, date_realisee, distance_prevue, distance_realisee, estrealisee, programme_id, sport_id, CENTREINTERET_ID, timeframe_id) VALUES ("+ idAct +", '2018-04-"+ jour +"', '2018-04-"+ jour + "\', " + distanceActivite +", "+ distanceActivite +", 1, "+ idProgramme +", 1, 10000, "+ timeframeid +");\n"
+    // output += "INSERT INTO realisation(realisation_id, date, distance, activity_id, programme_id, CENTREINTERET_ID, timeframe_id) VALUES ("+ idReal +", '2018-04-"+ jour +"', 4, "+ idAct +", " + idProgramme + ", 10000, "+ timeframeid +");\n"
     
     idReal++
     idAct++
