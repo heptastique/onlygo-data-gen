@@ -31,13 +31,23 @@ for(var i = 0; i<50; i++) {
 
   var username = idUser - 10000
 
+  var nbSeances = Math.round(1+Math.random()*3)
+
   output += "INSERT INTO point (ID, x, y) VALUES (" + idPoint +", " + latUser + ", " + longUser + ");\n"
-  output += "INSERT INTO users (ID, USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL, ENABLED, LASTPASSWORDRESETDATE, Location_id) VALUES (" + idUser + ", \"user" + username + "\", \"$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC\", \"user" + username + "\", \"user" + username + "\", \"user" + username + "@user.com\", 1, \"2003/01/22\", "+ idPoint +");\n"
+  output += "INSERT INTO users (ID, USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL, ENABLED, LASTPASSWORDRESETDATE, Location_id, NBSESSIONS) VALUES (" + idUser + ", \"user" + username + "\", \"$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC\", \"user" + username + "\", \"user" + username + "\", \"user" + username + "@user.com\", 1, \"2003/01/22\", "+ idPoint +", "+ nbSeances +");\n"
   output += "INSERT INTO user_authority (USER_ID, AUTHORITY_ID) VALUES ("+ idUser +", 2);\n"
   output += "INSERT INTO objectif (id, objectif, sport_id) VALUES (" + idObjectif + ", 10, 1);\n"
   output += "INSERT INTO users_objectifs (user_id, objectifs_id) VALUES ("+ idUser +", "+ idObjectif +");\n"
-  
   idObjectif++
+
+  output += "INSERT INTO objectif (id, objectif, sport_id) VALUES (" + idObjectif + ", 10, 2);\n"
+  output += "INSERT INTO users_objectifs (user_id, objectifs_id) VALUES ("+ idUser +", "+ idObjectif +");\n"
+  idObjectif++
+
+  output += "INSERT INTO objectif (id, objectif, sport_id) VALUES (" + idObjectif + ", 10, 3);\n"
+  output += "INSERT INTO users_objectifs (user_id, objectifs_id) VALUES ("+ idUser +", "+ idObjectif +");\n"
+  idObjectif++
+  
   idPoint++
 
   // Generate future program
@@ -48,7 +58,14 @@ for(var i = 0; i<50; i++) {
   output += "INSERT INTO programme(programme_id, date_debut, user_id) VALUES ("+ idProgramme +", '2018-04-30', "+ idUser +");\n"
   output += "INSERT INTO objectif(id, objectif, sport_id) VALUES ("+ idObjectif +", 10, 1);\n"
   output += "INSERT INTO programme_objectifs(programme_programme_id, objectifs_id) VALUES ("+ idProgramme +", "+ idObjectif +");\n"
+  idObjectif++
 
+  output += "INSERT INTO objectif(id, objectif, sport_id) VALUES ("+ idObjectif +", 10, 2);\n"
+  output += "INSERT INTO programme_objectifs(programme_programme_id, objectifs_id) VALUES ("+ idProgramme +", "+ idObjectif +");\n"
+  idObjectif++
+
+  output += "INSERT INTO objectif(id, objectif, sport_id) VALUES ("+ idObjectif +", 10, 3);\n"
+  output += "INSERT INTO programme_objectifs(programme_programme_id, objectifs_id) VALUES ("+ idProgramme +", "+ idObjectif +");\n"
   idObjectif++
 
   for(var nbAct = 1; nbAct < 5; nbAct ++) {
